@@ -35,13 +35,11 @@ def npv(cfs, rate):
 
 
 def irr(cfs):
-    epsilon = 0.0001
-    numguess = 0
+    epsilon = 0.000001
     low = 0.0
     high = 100.0
     ans = (high + low) / 2.0
     while abs(npv(cfs, ans)) >= epsilon:
-        numguess += 1
         if npv(cfs, ans) < 0:
             high = ans
         else:
