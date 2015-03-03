@@ -1,10 +1,17 @@
 
 from __future__ import division
-import pylab
-
 
 
 def pv(pmt, rate, nper, fv):
+    """Inputs:
+        pmt as number
+        rate as decimal
+        nper as int
+        fv as number
+
+        output:
+        The present value of the stream of payments"""
+
     pv = []
     for i in range(1, nper + 1):
         pv.append(pmt / (1 + rate) ** i)
@@ -25,7 +32,6 @@ def irr(cfs):
     high = 100.0
     ans = (high + low) / 2.0
     while abs(npv(cfs, ans)) >= epsilon:
-        #print 'numguess = ', numguess, 'low = ', low, 'high = ', high, 'ans = ', ans
         numguess += 1
         if npv(cfs, ans) < 0:
             high = ans
@@ -33,9 +39,3 @@ def irr(cfs):
             low = ans
         ans = (high + low) / 2.0
     return ans
-
-
-cfs = [-100000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000,
-       10000, 10000, 10000,10000]
-
-print irr(cfs)
