@@ -21,6 +21,11 @@ def pv(pmt, rate, nper, fv):
 
 
 def npv(cfs, rate):
+    """
+    input:
+     cfs as list of numbers
+     rate as decimal
+    """
     npv = []
     for i, cf in enumerate(cfs):
         npv.append(cf / (1 + rate) ** i)
