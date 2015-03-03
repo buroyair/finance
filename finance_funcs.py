@@ -4,12 +4,12 @@ from __future__ import division
 
 def pv(pmt, rate, nper, fv):
     """
+    Compute the present value
     Inputs:
-    pmt as number
-    rate as decimal
-    nper as int
-    fv as number
-
+    * pmt as number
+    * rate as decimal
+    * nper as int
+    * fv as number
     output:
     The present value of the stream of payments
     """
@@ -22,8 +22,10 @@ def pv(pmt, rate, nper, fv):
 
 def npv(cfs, rate):
     """
+    Compute the present value
+
     input:
-     cfs as list of numbers
+     cfs as list of numbers, the 0 element in the investment amount
      rate as decimal
     """
     npv = []
@@ -33,13 +35,11 @@ def npv(cfs, rate):
 
 
 def irr(cfs):
-    epsilon = 0.0001
-    numguess = 0
+    epsilon = 0.00000001
     low = 0.0
     high = 100.0
     ans = (high + low) / 2.0
     while abs(npv(cfs, ans)) >= epsilon:
-        numguess += 1
         if npv(cfs, ans) < 0:
             high = ans
         else:
