@@ -3,14 +3,16 @@ from __future__ import division
 
 
 def pv(pmt, rate, nper, fv):
-    """Inputs:
-        pmt as number
-        rate as decimal
-        nper as int
-        fv as number
+    """
+    Inputs:
+    pmt as number
+    rate as decimal
+    nper as int
+    fv as number
 
-        output:
-        The present value of the stream of payments"""
+    output:
+    The present value of the stream of payments
+    """
 
     pv = []
     for i in range(1, nper + 1):
