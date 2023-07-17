@@ -15,10 +15,10 @@ def black_scholes_put(S, K, T, r, sigma):
     return put, d1, d2, -d1, -d2, norm.cdf(d1, 0.0, 1.0), norm.cdf(-d1, 0.0, 1.0), norm.cdf(d2, 0.0, 1.0), norm.cdf(-d2, 0.0, 1.0)
 
 # Parameters
-S = 60.0 
-K=50 # Current stock price
-T = 1.0       # Time until option expiration in years
-r = 0.05      # Risk-free interest rate
+S = 60.0    # Current stock price
+K = 50      # Strike price 
+T = 1.0     # Time until option expiration in years
+r = 0.05    # Risk-free interest rate
 sigma = 0.1
 # Calculate Black-Scholes price for call and put
 call_option_price, d1_call, d2_call, minus_d1_call, minus_d2_call, Nd1_call, Nminusd1_call, Nd2_call, Nminusd2_call = black_scholes_call(S, K, T, r, sigma)
